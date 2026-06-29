@@ -7,9 +7,10 @@ namespace Player
     {
         [SerializeField] private float _speed;
 
-        public Vector3 Velocity { get; private set; }
+        public bool IsMoving => _velocity.sqrMagnitude > 0;
 
         private CharacterController _char;
+        private Vector3 _velocity;
 
         private void Awake()
         {
@@ -31,9 +32,9 @@ namespace Player
 
         private void Move(Vector3 direction)
         {
-            Velocity = direction * _speed;
+            _velocity = direction * _speed;
 
-            _char.Move(Velocity * Time.deltaTime);
+            _char.Move(_velocity * Time.deltaTime);
         }
     }
 }
