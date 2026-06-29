@@ -685,9 +685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4690c6089678646be9f0b86c4b0495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.AudioHandler
-  _move: {fileID: 983500799}
   _source: {fileID: 983500796}
   _runningSound: {fileID: 8300000, guid: f1f54a7915f5585479ace215c513d8eb, type: 3}
+  _state: {fileID: 983500802}
 --- !u!114 &983500798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +753,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.AnimationHandler
   _animator: {fileID: 983500795}
-  _movement: {fileID: 983500799}
+  _state: {fileID: 983500802}
+--- !u!114 &983500802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983500793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7096da1ea5143244ab0e2f721064fff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.StateHandler
+  _move: {fileID: 983500799}
 --- !u!1001 &1553312632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +847,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fad97755f150a9249a9537ed3d352572, type: 3}
       insertIndex: -1
       addedObject: {fileID: 983500801}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fad97755f150a9249a9537ed3d352572, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 983500802}
   m_SourcePrefab: {fileID: 100100000, guid: fad97755f150a9249a9537ed3d352572, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

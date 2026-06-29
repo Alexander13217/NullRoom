@@ -5,11 +5,26 @@ namespace Player
     public class AnimationHandler : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
-        [SerializeField] private Movement _movement;
+        [SerializeField] private StateHandler _state;
 
-        private void Update()
+        private void OnEnable()
         {
-            _animator.SetBool("IsMoving", _movement.IsMoving);
+            _state.StateChanged += UpdateAnimation;
+        }
+
+        private void OnDisable()
+        {
+            _state.StateChanged -= UpdateAnimation;
+        }
+
+        private void UpdateAnimation(State state)
+        {
+            if(state == State.Walking)
+            {
+                _animator.SetBool("IsMoving", true);
+                return;
+            }
+            _animator.SetBool("IsMoving", false);
         }
     }
 }

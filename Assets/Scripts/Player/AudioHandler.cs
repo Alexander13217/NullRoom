@@ -4,30 +4,31 @@ namespace Player
 {
     public class AudioHandler : MonoBehaviour
     {
-        [SerializeField] private Movement _move;
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _runningSound;
+        [SerializeField] private StateHandler _state;
 
-        private void Awake()
+        private void OnEnable()
+        {
+            _state.StateChanged += UpdateSound;
+        }
+
+        private void OnDisable()
+        {
+            _state.StateChanged -= UpdateSound;
+        }
+
+        private void Awake()    
         {
             _source.loop = true;
+            _source.clip = _runningSound;
         }
-
-        private void Update()
+        
+        private void UpdateSound(State state)
         {
-            WalkSound();
-        }
-
-        private void WalkSound()
-        {
-            if (_move.IsMoving)
+            if(state == State.Walking)
             {
-                if(_source.isPlaying == false)
-                {
-                    _source.clip = _runningSound;
-                    _source.Play();
-                    return;
-                }
+                _source.Play();
                 return;
             }
             _source.Stop();
