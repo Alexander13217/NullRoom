@@ -39,6 +39,7 @@ namespace Anomaly
         private IEnumerator Timer(float time)
         {
             yield return new WaitForSeconds(time);
+            _timer = null;
             //Call lose event
         }
     }
