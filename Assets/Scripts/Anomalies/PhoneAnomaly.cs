@@ -14,7 +14,7 @@ namespace Anomaly
 
         private void Awake()
         {
-            _audio = new Audio(_source, _initClip);
+            _audio = new Audio(_source, _initClip);  
         }
 
         public override void Activate()

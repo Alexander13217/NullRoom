@@ -21,10 +21,9 @@ namespace Anomaly
 
         public void Play(AudioClip clip, bool loop = true)
         {
-            _source.Stop();
             _source.loop = loop;
             _source.clip = clip;
-            _source.Play();
+            _source.Play();   
         }
     }
 }
