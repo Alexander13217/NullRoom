@@ -19,6 +19,7 @@ namespace Anomaly
         {
             _audio = new Audio(_source, _initClip);
             _clue = "Press the 'E' key to answer a phone call.";
+            Activate();
         }
 
         public override void Activate()
